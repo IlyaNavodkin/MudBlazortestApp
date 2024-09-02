@@ -1,0 +1,9 @@
+﻿
+<MudList>
+    @foreach (var group in Groups)
+    {
+        <MudListItem @onclick="() => SelectGroup(group)" Class="pa-1">
+            @group.Name
+        </MudListItem>
+    }
+</MudList>

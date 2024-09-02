@@ -1,0 +1,28 @@
+﻿
+@if (SelectedGroup != null)
+{
+    <MudText Typo="Typo.h5" Class="mt-4">Selected Group: @SelectedGroup.Name</MudText>
+
+    <MudSelect @bind-Value="SelectedGroup.SelectedManufacture" MultiSelection="false"
+               T="ManufactureViewModel" Label="Выберите производителя">
+        @foreach (var manufacture in SelectedGroup.Manufactures)
+        {
+            <MudSelectItem Value="@manufacture">@manufacture.Name</MudSelectItem>
+        }
+    </MudSelect>
+
+    <MudSelect @bind-Value="SelectedGroup.SelectedCatalog" MultiSelection="false"
+               T="CatalogViewModel" Label="Выберите каталог">
+        @if (SelectedGroup.SelectedManufacture != null)
+        {
+            @foreach (var catalog in SelectedGroup.SelectedManufacture.Catalogs)
+            {
+                <MudSelectItem Value="@catalog">@catalog.Name</MudSelectItem>
+            }
+        }
+    </MudSelect>
+}
+else
+{
+    <MudText Typo="Typo.subtitle1" Class="mt-4">Выберите группу из списка</MudText>
+}

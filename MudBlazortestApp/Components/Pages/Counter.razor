@@ -1,0 +1,15 @@
+﻿@page "/counter"
+@using MudBlazortestApp.Components.Widgets
+@rendermode InteractiveServer
+
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudText Typo="Typo.h3" GutterBottom="true">Group Management</MudText>
+
+<GroupListComponent Groups="PageVM.Groups" OnGroupSelected="OnGroupSelected" />
+
+<GroupSelectionComponent SelectedGroup="selectedGroup" />
+
+
